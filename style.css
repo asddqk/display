@@ -76,6 +76,17 @@ html, body {
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
 }
 
+.indicatorP {
+  position: absolute;
+  top: 83px;
+  left: 951px;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background-color: #cc000a; /* зелёный по умолчанию */
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
 /* Сами кнопки */
 .main-btn {
   width: 100%;
@@ -212,6 +223,7 @@ html, body {
   bottom: 0;
   width: 1024px;
   height: 77px;
+  left: 0px;
   background-color: #0AB69C;
   color: white;
   font-size: 18px;
@@ -424,6 +436,21 @@ html, body {
   cursor: pointer;
 }
 
+.problem-button-ins {
+  position: absolute;
+  top: 500px;
+  right: 50px;
+  width: 200px; /* подбери под размер изображения */
+  height: auto;
+  cursor: pointer;
+}
+
+.ins {
+  position: absolute;
+  top: 162px;
+  left: 121px;
+}
+
 /* Стили экрана проблем */
 #screen-problems {
     display: none !important;
@@ -487,6 +514,15 @@ html, body {
     top: 280px;
     left: 332px;
 }
+
+.vozvrat-icon{
+    position: absolute;
+    width: 374px;
+    height: 298px;
+    top: 242px;
+    left: 356px;
+}
+
 .zvonki-icon{
     position: absolute;
     width: 330px;

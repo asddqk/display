@@ -282,7 +282,7 @@
       <button class="main-btn" onclick = "showScreen('open-return-box')">Открыть ячейки возврата</button>
     </div>
 
-    <div id="parcel-indicator" class="indicator"></div>
+    <div id="parcel-indicator" class="indicatorP"></div>
 </div>
 
 <!--П: проверить посылки-->
@@ -351,31 +351,56 @@
   </div>
 </div>
 
+<!--П:проверка: инстр 1-->
 <div id = "instr-screen" class = "screen">
     <button class="btn back-btn">
     <span>&larr;</span> Назад
   </button>
-
   <button class="btn next-btn">
     Далее <span>&rarr;</span>
-  </button>
-  <p class="code-title-check"> Сейчас откроются ячейки № х, y, z, n, m </p>
+  </button> 
+  <img src="инструкция.svg" alt="инструкция" class="ins">
+  <img src="Problem.svg" alt="У меня проблема" class="problem-button-ins">
 </div>
-
-<div id = "instr2-screen" class = "screen">
-    <button class="btn back-btn">
+<!--П:проверка: инстр 2-->
+<div id = "ins2-screen" class = "screen">
+  <button class="btn back-btn">
     <span>&larr;</span> Назад
   </button>
-
   <button class="btn next-btn">
-    Далее <span>&rarr;</span>
-  </button>
-  <p class="code-title-check"> Сейчас откроются ячейки возврата.
-Пожалуйста, после использования 
-не
-забудьте закрыть их</p>
+    Завершить проверку <span>&rarr;</span>
+  </button> 
+  <img src="ins2.svg" alt="инструкция" class="ins">
+  <img src="Problem.svg" alt="У меня проблема" class="problem-button-ins">
 </div>
 
+<!--П:проверка: (КОНЕЦ) пж закройте холодильник-->
+
+<!--П:возврат: инстр 1-->
+<div id = "instr2-screen" class = "screen">
+  <button class="btn back-btn">
+    <span>&larr;</span> Назад
+  </button>
+  <button class="btn next-btn">
+    Далее <span>&rarr;</span>
+  </button> 
+  <h2 class="on-title">Сейчас откроются ячейки возврата.<br>Пожалуйста, после использования<br>не забудьте закрыть их</h2>
+  <img src="возврат.svg" alt="возврат" class="dver-icon">
+  <img src="Problem.svg" alt="У меня проблема" class="problem-button-ins">
+</div>
+
+<!--П:возврат: (КОНЕЦ) )-->
+<div id = "instr2-screen-end" class = "screen">
+  <button class="btn back-btn">
+    <span>&larr;</span> Назад
+  </button>
+  <button class="btn next-btn">
+    Завершить возврат <span>&rarr;</span>
+  </button> 
+  <h2 class="on-title">Пожалуйста,<br>не забудьте закрыть ячейки</h2>
+  <img src="posstamat4.svg" alt="возврат" class="vozvrat-icon">
+  <img src="Problem.svg" alt="У меня проблема" class="problem-button-ins">
+</div>
 
     <script src="scripts.js"></script>
 </body>

@@ -98,6 +98,14 @@ function initEventHandlers() {
     });
   });
 
+  document.querySelectorAll('.problem-button-ins').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      showScreen('screen-problems');
+    });
+  });
+
   // Обработчик для кнопки "Далее" на экране ввода телефона
   document.querySelector('#screen-phone .next-btn')?.addEventListener('click', () => {
     if (digits.length === 10) {
@@ -127,6 +135,14 @@ function initEventHandlers() {
   });
 
 //обработчик далее на П:мастер код для возврата
+  document.querySelector('#instr-screen .next-btn')?.addEventListener('click', () => {
+      showScreen('ins2-screen');
+  });
+
+  document.querySelector('#instr2-screen .next-btn')?.addEventListener('click', () => {
+      showScreen('instr2-screen-end');
+  });
+
   document.querySelector('#open-return-box .next-btn')?.addEventListener('click', () => {
     if (codeInputHandler.getCode().length === 4) {
       showScreen('instr2-screen');
