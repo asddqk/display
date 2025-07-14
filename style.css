@@ -1,0 +1,712 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  font-family: sans-serif;
+  width: 1024px;
+  height: 600px;
+  overflow: hidden;
+  position: relative; /* добавил, чтобы absolute внутри работал корректно */
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a; /* тёмно-серый */
+}
+
+.screen {
+  width: 1024px;
+  height: 600px;
+  position: absolute; /* чтобы экраны накладывались друг на друга */
+  top: 0;
+  left: 0;
+  background: white;
+  padding: 40px;
+  box-sizing: border-box;
+  display: none; /* скрываем все экраны по умолчанию */
+}
+
+/* Показывать активный экран */
+.screen.active {
+  display: block;
+}
+
+/* Логотип в левом верхнем углу */
+.icon-pp {
+  position: absolute;
+  top: 62px;
+  left: 50px;
+  width: 65px;
+  height: 65px;
+}
+
+/* Логотип по центру */
+.logo {
+  position: absolute;
+  top: 58px;
+  left: 425px;
+  width: 174px;
+  height: 72px;
+}
+
+/* Группа кнопок */
+.button-group {
+  position: absolute;
+  top: 203px;
+  left: 237px;
+  width: 550px;
+  height: 325px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 20px;
+}
+
+/* Индикатор посылок */
+.indicator {
+  position: absolute;
+  top: 83px;
+  left: 951px;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background-color: #00cc66; /* зелёный по умолчанию */
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Сами кнопки */
+.main-btn {
+  width: 100%;
+  height: 150px;
+  background-color: #0AB69C;
+  border: none;
+  border-radius: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 50px;
+  letter-spacing: 0;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.main-btn:hover {
+  background-color: #099e89;
+}
+
+/* Стили для экрана ввода телефона */
+
+#screen-phone h2 {
+  font-size: 40px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.phone-input {
+  font-size: 32px;
+  padding: 20px;
+  width: 500px;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+}
+
+
+/* Кнопки Назад и Далее */
+.btn {
+  position: absolute;
+  width: 133px;
+  height: 53px;
+  padding: 14px 20px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  border: none;
+}
+
+.back-btn {
+  top: 50px;
+  left: 50px;
+  border: 2px solid #0AB69C;
+  background: white;
+  color: #0AB69C;
+}
+
+.next-btn {
+  top: 50px;
+  left: 841px;
+  background: #0AB69C;
+  color: white;
+}
+
+/* Заголовок */
+.phone-title {
+  position: absolute;
+  top: 28px;
+  left: 282px;
+  width: 461px;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 40px;
+  text-align: center;
+  color: #0F172A;
+  white-space: nowrap;
+}
+
+/* Поле ввода */
+.phone-input {
+  position: absolute;
+  top: -5px;
+  left: 5px;
+  width: 385px;
+  height: 64px;
+  font-size: 28px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* Клавиатура */
+.keypad {
+  position: absolute;
+  top: 215px;
+  left: 404px;
+  width: 217px;
+  height: 283px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.key {
+  font-size: 24px;
+  padding: 15px;
+  background: #F7F7F7;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.key.empty {
+  background: transparent;
+  border: none;
+  cursor: default;
+}
+
+/* Нижний блок */
+.consent-bar {
+  position: absolute;
+  bottom: 0;
+  width: 1024px;
+  height: 77px;
+  background-color: #0AB69C;
+  color: white;
+  font-size: 18px;
+  line-height: 23px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 80px;
+  box-sizing: border-box;
+  text-align: center;
+  gap: 12px;
+}
+
+.problem-bar {
+    position: absolute;
+    bottom: 52px;
+    width: 197px;
+    height: 50px;
+    left: 778px;
+    background-color: #0AB69C;
+    color: white;
+    font-size: 24px;
+    line-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 80px;
+    box-sizing: border-box;
+    text-align: center; 
+    gap: 12px;
+}
+
+.info-icon {
+  width: 32px;
+  height: 36px;
+}
+
+.phone-input-wrapper {
+  position: absolute;
+  top: 133px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 385px;
+  height: 64px;
+}
+
+.clear-icon {
+  position: absolute;
+  right: 15px;
+  top: 25px;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  z-index: 2;
+  opacity: 0.6;
+}
+
+.clear-icon:hover {
+  opacity: 1;
+}
+
+.phone-check-title {
+  position: absolute;
+  width: 748px;
+  height: 50px;
+  top: 158px;
+  left: 138px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 50px;
+  letter-spacing: 0;
+  text-align: center;
+  color: #101828;
+  opacity: 1;
+  /* leading-trim не поддерживается в CSS, используем line-height */
+}
+
+.mistake-btn {
+    white-space: nowrap;
+  position: absolute;
+  width: 451px;
+  height: 97px;
+  top: 452px;
+  left: 50px;
+  border-radius: 20px;
+  padding: 47px 108px;
+  border: 2px solid #0AB69C;
+  background: white;
+  color: #0AB69C;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.correct-btn {
+  position: absolute;
+  width: 451px;
+  height: 97px;
+  top: 452px;
+  left: 523px;
+  border-radius: 20px;
+  padding: 47px 108px;
+  background: #0AB69C;
+  color: white;
+  border: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.mistake-btn:hover {
+  background: #f0f0f0;
+}
+
+.correct-btn:hover {
+  background: #099e89;
+}
+
+.phone-number-display {
+  position: absolute;
+  width: 483px;
+  height: 93px;
+  top: 266px;
+  left: 271px;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  background: #F8FAFC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.screen-package-title {
+    position: absolute;
+    width: 925px;
+    height: 80px;
+    top: 126px;
+    left: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: 0;
+    text-align: center;
+    color: #101828;
+    opacity: 1;
+}
+
+#displayed-phone {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 45px;
+  color: #0F172A;
+  padding: 0 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.posstamat4 {
+    position: absolute;
+    width: 330px;
+    height: 239px;
+    top: 217px;
+    left: 332px;
+}
+
+.destructive-icon {
+    width: 785px;
+    height: 85px;
+    position: absolute;
+    top: 466px;
+    left: 120px;
+}
+
+.holodomat {
+    width: 235;
+    height: 235;
+    top: 202px;
+    left: 392px;
+    angle: 0 deg;
+    opacity: 1;
+}
+
+.destructivealert-icon {
+    width: 517px;
+    height: 85px;
+    position: absolute;
+    top: 465px;
+    left: 259px;
+}
+
+.problem-button {
+  position: absolute;
+  top: 52px;
+  right: 50px;
+  width: 200px; /* подбери под размер изображения */
+  height: auto;
+  cursor: pointer;
+}
+
+/* Стили экрана проблем */
+#screen-problems {
+    display: none !important;
+}
+
+#screen-problems.active {
+    display: block !important;
+}
+.problem-header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.problem-title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 32px;
+    color: #0F172A;
+}
+
+.problem-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* центрирует по горизонтали */
+    justify-content: center;  /* центрирует по вертикали (если контейнер высокий) */
+    gap: 10px;
+    margin: 0 auto;  /* автоматические отступы по бокам */
+    padding: 20px;  /* внутренние отступы */
+    width: 100%;  /* растягивает на всю ширину родителя */
+    max-width: 800px;  /* ограничивает максимальную ширину */
+}
+
+.problem-options img {
+    width: 700px;  /* адаптируется под ширину контейнера */
+    height: 130px;  /* сохраняет пропорции */
+    object-fit: contain;  /* гарантирует, что изображение не обрежется */
+    cursor: pointer;
+}
+
+.problemans-header {
+    position: absolute;
+    width: 925px;
+    height: 80px;
+    top: 120px;
+    left: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 40px;
+    letter-spacing: 0;
+    text-align: center;
+    color: #101828;
+    opacity: 1;
+    margin-bottom: 24px;
+}
+.dver-icon{
+    position: absolute;
+    width: 330px;
+    height: 239px;
+    top: 280px;
+    left: 332px;
+}
+.zvonki-icon{
+    position: absolute;
+    width: 330px;
+    height: 239px;
+    top: 300px;
+    left: 332px;
+}
+
+.problem1-title{
+    width: 925px;
+height: 100px;
+top: 158px;
+left: 50px;
+opacity: 1;
+}
+
+.phone-box {
+    margin-top: 20px;
+    width: 400px;
+    height: 90px;
+    border: 1px solid #D9D9D9;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 40px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 23px; /* 93 - padding: 10*2 */
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+
+    margin: 150px auto; /* центрирование */
+    color: #1C1C1E; /* тёмно-серый, как в макете */
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.code-title {
+  position: absolute;
+  top: 28px;
+  left: 245px;
+  width: 461px;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 40px;
+  text-align: center;
+  color: #0F172A;
+  white-space: nowrap;
+}
+
+.code-input-wrapper {
+  position: absolute;
+  top: 133px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 385px;
+  height: 64px;
+}
+
+.clear-icon-code {
+  position: absolute;
+  right: 190px;
+  top: 31px;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  z-index: 2;
+  opacity: 0.6;
+}
+
+.clear-icon-code:hover {
+  opacity: 1;
+}
+
+.code-input-wrapper {
+  top: 125px;
+  left: 600px;
+  display: flex;
+  gap: 4px;
+}
+
+.code-input {
+  font-size: 32px;
+  width: 216px;
+  height: 64px;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+  opacity: 1;
+  padding: 0 20px;
+}
+
+.on-title{
+    position: absolute;
+    width: 925px;
+    height: 80px;
+    top: 120px;
+    left: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 40px;
+    letter-spacing: 0;
+    text-align: center;
+    color: #101828;
+    opacity: 1;
+    margin-bottom: 24px;
+}
+
+/* Стили для иконки ошибки */
+.mistake-icon {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px; /* Настройте под размер вашей иконки */
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* Переназначьте позиционирование для элементов */
+#wrong-code .code-title {
+  top: 28px;
+}
+
+#wrong-code .code-input {
+  border: 2px solid #FF3B30;
+}
+
+#wrong-code .code-input-wrapper {
+  top: 120px; /* Увеличьте отступ, чтобы учесть иконку */
+}
+
+#wrong-code .keypad {
+  top: 210px;
+}
+
+.mistake-icon {
+    width: 517px;
+    height: 85px;
+    position: absolute;
+    top: 500px;
+    left: 512px;
+}
+
+/*code check*/
+
+#screen-check-enter-code .keypad {
+  top: 250px;
+}
+
+#open-return-box .keypad {
+  top: 250px;
+}
+
+.code-title-check {
+  position: absolute; /* Если действительно нужно абсолютное позиционирование */
+  top: 45px;
+  left: 50%; /* Центрируем по горизонтали */
+  transform: translateX(-50%); /* Корректируем положение на половину ширины элемента */
+  width: 550px;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 40px;
+  color: #0F172A;
+  text-align: center; /* Центрируем текст внутри блока */
+  white-space: nowrap;
+  margin: 0; /* Убираем стандартные отступы */
+  padding: 0; /* Убираем стандартные отступы */
+}
+
+.centered-line {
+  display: inline-block; /* Позволяет применить margin */
+  margin-top: 10px; /* Отступ между строками */
+  top: 15px;
+  left: 300px;
+  width: 550px;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 40px;
+  color: #0F172A;
+  white-space: nowrap;
+}
+
+
+.code-input-wrapper-check {
+  position: absolute;
+  top: 170px;
+  left: 597px;
+  transform: translateX(-50%);
+  width: 385px;
+  height: 64px;
+}
+
+.clear-icon-code-check {
+  position: absolute;
+  right: 190px;
+  top: 31px;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  z-index: 2;
+  opacity: 0.6;
+}
+
+.clear-icon-code-check:hover {
+  opacity: 1;
+}
+
+.code-input-check {
+  font-size: 32px;
+  width: 216px;
+  height: 64px;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+  opacity: 1;
+  padding: 0 20px;
+}
