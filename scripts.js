@@ -21,6 +21,15 @@ function showScreen(screenId, rememberHistory = true) {
   if (screenId === 'enter-code' && codeInputHandler) {
     codeInputHandler.clearCode(); // Добавьте этот метод в initCodeInput()
   }
+
+    if (screenId === 'screen-check-enter-code' && codeInputHandler) {
+    codeInputHandler.clearCode(); // Добавьте этот метод в initCodeInput()
+  }
+
+  if (screenId === 'open-return-box' && codeInputHandler) {
+    codeInputHandler.clearCode(); // Добавьте этот метод в initCodeInput()
+  }
+
 }
 
 // Инициализация ввода телефона
@@ -108,7 +117,23 @@ function initEventHandlers() {
       alert('Пожалуйста, введите полный 4-значный код');
     }
   });
+//обработчик далее на П:мастер код для непроверненых посылок
+  document.querySelector('#screen-check-enter-code .next-btn')?.addEventListener('click', () => {
+    if (codeInputHandler.getCode().length === 4) {
+      showScreen('instr-screen');
+    } else {
+      alert('Пожалуйста, введите полный 4-значный код');
+    }
+  });
 
+//обработчик далее на П:мастер код для возврата
+  document.querySelector('#open-return-box .next-btn')?.addEventListener('click', () => {
+    if (codeInputHandler.getCode().length === 4) {
+      showScreen('instr2-screen');
+    } else {
+      alert('Пожалуйста, введите полный 4-значный код');
+    }
+  });
 
   // Кнопка "Ошибка в номере"
   document.querySelector('.mistake-btn')?.addEventListener('click', () => {
@@ -131,6 +156,9 @@ function initEventHandlers() {
   document.querySelector('.icon-pp')?.addEventListener('click', function() {
     showScreen('screen-check');
 });
+
+
+
 }
 
 function handleBackButton() {
