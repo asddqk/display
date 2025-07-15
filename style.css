@@ -9,7 +9,8 @@ body {
   position: relative; /* добавил, чтобы absolute внутри работал корректно */
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   background-color: #1a1a1a; /* тёмно-серый */
@@ -91,10 +92,10 @@ html, body {
 .main-btn {
   width: 100%;
   height: 150px;
-  background-color: #0AB69C;
+  background-color: #0ab69c;
   border: none;
   border-radius: 20px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 40px;
   line-height: 50px;
@@ -123,10 +124,9 @@ html, body {
   border: 2px solid #ccc;
   border-radius: 12px;
   margin-bottom: 30px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   box-sizing: border-box;
 }
-
 
 /* Кнопки Назад и Далее */
 .btn {
@@ -136,7 +136,7 @@ html, body {
   padding: 14px 20px;
   border-radius: 8px;
   font-size: 18px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 500;
   display: flex;
   align-items: center;
@@ -149,15 +149,15 @@ html, body {
 .back-btn {
   top: 50px;
   left: 50px;
-  border: 2px solid #0AB69C;
+  border: 2px solid #0ab69c;
   background: white;
-  color: #0AB69C;
+  color: #0ab69c;
 }
 
 .next-btn {
   top: 50px;
   left: 841px;
-  background: #0AB69C;
+  background: #0ab69c;
   color: white;
 }
 
@@ -171,7 +171,7 @@ html, body {
   font-weight: 500;
   line-height: 40px;
   text-align: center;
-  color: #0F172A;
+  color: #0f172a;
   white-space: nowrap;
 }
 
@@ -205,7 +205,7 @@ html, body {
 .key {
   font-size: 24px;
   padding: 15px;
-  background: #F7F7F7;
+  background: #f7f7f7;
   border: 1px solid #ddd;
   border-radius: 8px;
   cursor: pointer;
@@ -224,7 +224,7 @@ html, body {
   width: 1024px;
   height: 77px;
   left: 0px;
-  background-color: #0AB69C;
+  background-color: #0ab69c;
   color: white;
   font-size: 18px;
   line-height: 23px;
@@ -238,22 +238,22 @@ html, body {
 }
 
 .problem-bar {
-    position: absolute;
-    bottom: 52px;
-    width: 197px;
-    height: 50px;
-    left: 778px;
-    background-color: #0AB69C;
-    color: white;
-    font-size: 24px;
-    line-height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 80px;
-    box-sizing: border-box;
-    text-align: center; 
-    gap: 12px;
+  position: absolute;
+  bottom: 52px;
+  width: 197px;
+  height: 50px;
+  left: 778px;
+  background-color: #0ab69c;
+  color: white;
+  font-size: 24px;
+  line-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 80px;
+  box-sizing: border-box;
+  text-align: center;
+  gap: 12px;
 }
 
 .info-icon {
@@ -292,7 +292,7 @@ html, body {
   height: 50px;
   top: 158px;
   left: 138px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 40px;
   line-height: 50px;
@@ -304,7 +304,7 @@ html, body {
 }
 
 .mistake-btn {
-    white-space: nowrap;
+  white-space: nowrap;
   position: absolute;
   width: 451px;
   height: 97px;
@@ -312,10 +312,10 @@ html, body {
   left: 50px;
   border-radius: 20px;
   padding: 47px 108px;
-  border: 2px solid #0AB69C;
+  border: 2px solid #0ab69c;
   background: white;
-  color: #0AB69C;
-  font-family: 'Roboto', sans-serif;
+  color: #0ab69c;
+  font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 30px;
   display: flex;
@@ -333,10 +333,10 @@ html, body {
   left: 523px;
   border-radius: 20px;
   padding: 47px 108px;
-  background: #0AB69C;
+  background: #0ab69c;
   color: white;
   border: none;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 30px;
   display: flex;
@@ -360,71 +360,70 @@ html, body {
   height: 93px;
   top: 266px;
   left: 271px;
-  border: 1px solid #E2E8F0;
+  border: 1px solid #e2e8f0;
   border-radius: 8px;
-  background: #F8FAFC;
+  background: #f8fafc;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .screen-package-title {
-    position: absolute;
-    width: 925px;
-    height: 80px;
-    top: 126px;
-    left: 50px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: 0;
-    text-align: center;
-    color: #101828;
-    opacity: 1;
+  position: absolute;
+  width: 925px;
+  height: 80px;
+  top: 126px;
+  left: 50px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 40px;
+  letter-spacing: 0;
+  text-align: center;
+  color: #101828;
+  opacity: 1;
 }
 
 #displayed-phone {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 45px;
-  color: #0F172A;
+  color: #0f172a;
   padding: 0 10px;
   width: 100%;
   text-align: center;
 }
 
 .posstamat4 {
-    position: absolute;
-    width: 330px;
-    height: 239px;
-    top: 217px;
-    left: 332px;
+  position: absolute;
+  width: 330px;
+  height: 239px;
+  top: 217px;
+  left: 332px;
 }
 
 .destructive-icon {
-    width: 785px;
-    height: 85px;
-    position: absolute;
-    top: 466px;
-    left: 120px;
+  width: 785px;
+  height: 85px;
+  position: absolute;
+  top: 466px;
+  left: 120px;
 }
 
 .holodomat {
-    width: 235;
-    height: 235;
-    top: 202px;
-    left: 392px;
-    angle: 0 deg;
-    opacity: 1;
+  width: 235;
+  height: 235;
+  top: 202px;
+  left: 392px;
+  opacity: 1;
 }
 
 .destructivealert-icon {
-    width: 517px;
-    height: 85px;
-    position: absolute;
-    top: 465px;
-    left: 259px;
+  width: 517px;
+  height: 85px;
+  position: absolute;
+  top: 465px;
+  left: 259px;
 }
 
 .problem-button {
@@ -453,111 +452,111 @@ html, body {
 
 /* Стили экрана проблем */
 #screen-problems {
-    display: none !important;
+  display: none !important;
 }
 
 #screen-problems.active {
-    display: block !important;
+  display: block !important;
 }
 .problem-header {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 40px;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 .problem-title {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    font-size: 32px;
-    color: #0F172A;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 32px;
+  color: #0f172a;
 }
 
 .problem-options {
-    display: flex;
-    flex-direction: column;
-    align-items: center;  /* центрирует по горизонтали */
-    justify-content: center;  /* центрирует по вертикали (если контейнер высокий) */
-    gap: 10px;
-    margin: 0 auto;  /* автоматические отступы по бокам */
-    padding: 20px;  /* внутренние отступы */
-    width: 100%;  /* растягивает на всю ширину родителя */
-    max-width: 800px;  /* ограничивает максимальную ширину */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* центрирует по горизонтали */
+  justify-content: center; /* центрирует по вертикали (если контейнер высокий) */
+  gap: 10px;
+  margin: 0 auto; /* автоматические отступы по бокам */
+  padding: 20px; /* внутренние отступы */
+  width: 100%; /* растягивает на всю ширину родителя */
+  max-width: 800px; /* ограничивает максимальную ширину */
 }
 
 .problem-options img {
-    width: 700px;  /* адаптируется под ширину контейнера */
-    height: 130px;  /* сохраняет пропорции */
-    object-fit: contain;  /* гарантирует, что изображение не обрежется */
-    cursor: pointer;
+  width: 700px; /* адаптируется под ширину контейнера */
+  height: 130px; /* сохраняет пропорции */
+  object-fit: contain; /* гарантирует, что изображение не обрежется */
+  cursor: pointer;
 }
 
 .problemans-header {
-    position: absolute;
-    width: 925px;
-    height: 80px;
-    top: 120px;
-    left: 50px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    font-size: 28px;
-    line-height: 40px;
-    letter-spacing: 0;
-    text-align: center;
-    color: #101828;
-    opacity: 1;
-    margin-bottom: 24px;
+  position: absolute;
+  width: 925px;
+  height: 80px;
+  top: 120px;
+  left: 50px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 40px;
+  letter-spacing: 0;
+  text-align: center;
+  color: #101828;
+  opacity: 1;
+  margin-bottom: 24px;
 }
-.dver-icon{
-    position: absolute;
-    width: 330px;
-    height: 239px;
-    top: 280px;
-    left: 332px;
-}
-
-.vozvrat-icon{
-    position: absolute;
-    width: 374px;
-    height: 298px;
-    top: 242px;
-    left: 356px;
+.dver-icon {
+  position: absolute;
+  width: 330px;
+  height: 239px;
+  top: 280px;
+  left: 332px;
 }
 
-.zvonki-icon{
-    position: absolute;
-    width: 330px;
-    height: 239px;
-    top: 300px;
-    left: 332px;
+.vozvrat-icon {
+  position: absolute;
+  width: 374px;
+  height: 298px;
+  top: 242px;
+  left: 356px;
 }
 
-.problem1-title{
-    width: 925px;
-height: 100px;
-top: 158px;
-left: 50px;
-opacity: 1;
+.zvonki-icon {
+  position: absolute;
+  width: 330px;
+  height: 239px;
+  top: 300px;
+  left: 332px;
+}
+
+.problem1-title {
+  width: 925px;
+  height: 100px;
+  top: 158px;
+  left: 50px;
+  opacity: 1;
 }
 
 .phone-box {
-    margin-top: 20px;
-    width: 400px;
-    height: 90px;
-    border: 1px solid #D9D9D9;
-    border-radius: 8px;
-    padding: 10px 12px;
-    font-size: 40px;
-    font-weight: 500;
-    text-align: center;
-    line-height: 23px; /* 93 - padding: 10*2 */
-    display: flex;
-    align-items: center; 
-    justify-content: center;
+  margin-top: 20px;
+  width: 400px;
+  height: 90px;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 40px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 23px; /* 93 - padding: 10*2 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    margin: 150px auto; /* центрирование */
-    color: #1C1C1E; /* тёмно-серый, как в макете */
-    background-color: #fff;
-    box-sizing: border-box;
+  margin: 150px auto; /* центрирование */
+  color: #1c1c1e; /* тёмно-серый, как в макете */
+  background-color: #fff;
+  box-sizing: border-box;
 }
 
 .code-title {
@@ -569,7 +568,7 @@ opacity: 1;
   font-weight: 500;
   line-height: 40px;
   text-align: center;
-  color: #0F172A;
+  color: #0f172a;
   white-space: nowrap;
 }
 
@@ -611,27 +610,27 @@ opacity: 1;
   height: 64px;
   border: 2px solid #ccc;
   border-radius: 12px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   box-sizing: border-box;
   opacity: 1;
   padding: 0 20px;
 }
 
-.on-title{
-    position: absolute;
-    width: 925px;
-    height: 80px;
-    top: 120px;
-    left: 50px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    font-size: 28px;
-    line-height: 40px;
-    letter-spacing: 0;
-    text-align: center;
-    color: #101828;
-    opacity: 1;
-    margin-bottom: 24px;
+.on-title {
+  position: absolute;
+  width: 925px;
+  height: 80px;
+  top: 120px;
+  left: 50px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 40px;
+  letter-spacing: 0;
+  text-align: center;
+  color: #101828;
+  opacity: 1;
+  margin-bottom: 24px;
 }
 
 /* Стили для иконки ошибки */
@@ -651,7 +650,7 @@ opacity: 1;
 }
 
 #wrong-code .code-input {
-  border: 2px solid #FF3B30;
+  border: 2px solid #ff3b30;
 }
 
 #wrong-code .code-input-wrapper {
@@ -663,11 +662,11 @@ opacity: 1;
 }
 
 .mistake-icon {
-    width: 517px;
-    height: 85px;
-    position: absolute;
-    top: 500px;
-    left: 512px;
+  width: 517px;
+  height: 85px;
+  position: absolute;
+  top: 500px;
+  left: 512px;
 }
 
 /*code check*/
@@ -684,12 +683,14 @@ opacity: 1;
   position: absolute; /* Если действительно нужно абсолютное позиционирование */
   top: 45px;
   left: 50%; /* Центрируем по горизонтали */
-  transform: translateX(-50%); /* Корректируем положение на половину ширины элемента */
+  transform: translateX(
+    -50%
+  ); /* Корректируем положение на половину ширины элемента */
   width: 550px;
   font-size: 32px;
   font-weight: 500;
   line-height: 40px;
-  color: #0F172A;
+  color: #0f172a;
   text-align: center; /* Центрируем текст внутри блока */
   white-space: nowrap;
   margin: 0; /* Убираем стандартные отступы */
@@ -705,10 +706,9 @@ opacity: 1;
   font-size: 32px;
   font-weight: 500;
   line-height: 40px;
-  color: #0F172A;
+  color: #0f172a;
   white-space: nowrap;
 }
-
 
 .code-input-wrapper-check {
   position: absolute;
@@ -741,7 +741,7 @@ opacity: 1;
   height: 64px;
   border: 2px solid #ccc;
   border-radius: 12px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   box-sizing: border-box;
   opacity: 1;
   padding: 0 20px;

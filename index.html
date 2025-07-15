@@ -1,407 +1,435 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <title>Продуктомат</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet" />
-</head>
-<body>
-    
-<!-- Главный экран -->
-<div id="screen-welcome" class="screen screen-welcome active">
-    <img src="img/pp.svg" alt="PP" class="icon-pp" />
-    <img src="img/logo.svg" alt="Логотип" class="logo" />
+  <head>
+    <meta charset="UTF-8" />
+    <title>Продуктомат</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-    <div class="button-group">
-      <button class="main-btn" onclick="showScreen('screen-phone')">Положить посылку</button>
-      <button class="main-btn" onclick = "showScreen('enter-code')">Забрать посылку</button>
+  <body>
+    <!-- Главный экран -->
+    <div id="screen-welcome" class="screen screen-welcome active">
+      <img src="img/pp.svg" alt="PP" class="icon-pp" />
+      <img src="img/logo.svg" alt="Логотип" class="logo" />
+
+      <div class="button-group">
+        <button class="main-btn" onclick="showScreen('screen-phone')">
+          Положить посылку
+        </button>
+        <button class="main-btn" onclick="showScreen('enter-code')">
+          Забрать посылку
+        </button>
+      </div>
+
+      <div id="parcel-indicator" class="indicator"></div>
     </div>
 
-    <div id="parcel-indicator" class="indicator"></div>
-  </div>
+    <!-- Экран ввода телефона -->
+    <div id="screen-phone" class="screen">
+      <button class="btn back-btn"><span>&larr;</span> Назад</button>
 
-<!-- Экран ввода телефона -->
-<div id="screen-phone" class="screen">
-  <button class="btn back-btn">
-    <span>&larr;</span> Назад
-  </button>
+      <button class="btn next-btn">Далее <span>&rarr;</span></button>
 
-  <button class="btn next-btn">
-    Далее <span>&rarr;</span>
-  </button>
+      <p class="phone-title">Введите свой номер телефона</p>
 
-  <p class="phone-title">Введите свой номер телефона</p>
+      <div class="phone-input-wrapper">
+        <input
+          type="text"
+          id="phone-input"
+          class="phone-input"
+          placeholder="+7 (___) ___-__-__"
+        />
+        <img
+          id="clear-icon"
+          class="clear-icon"
+          src="Vector.svg"
+          alt="Очистить"
+          style="display: none"
+        />
+      </div>
 
-<div class="phone-input-wrapper">
-  <input type="text" id="phone-input" class="phone-input" placeholder="+7 (___) ___-__-__">
-  <img id="clear-icon" class="clear-icon" src="Vector.svg" alt="Очистить" style="display: none;">
-</div>
+      <div class="keypad">
+        <button class="key">1</button>
+        <button class="key">2</button>
+        <button class="key">3</button>
+        <button class="key">4</button>
+        <button class="key">5</button>
+        <button class="key">6</button>
+        <button class="key">7</button>
+        <button class="key">8</button>
+        <button class="key">9</button>
+        <div class="key empty"></div>
+        <button class="key">0</button>
+        <div class="key empty"></div>
+      </div>
 
-  <div class="keypad">
-    <button class="key">1</button>
-    <button class="key">2</button>
-    <button class="key">3</button>
-    <button class="key">4</button>
-    <button class="key">5</button>
-    <button class="key">6</button>
-    <button class="key">7</button>
-    <button class="key">8</button>
-    <button class="key">9</button>
-    <div class="key empty"></div>
-    <button class="key">0</button>
-    <div class="key empty"></div>
-  </div>
+      <div class="consent-bar">
+        <img src="Icon Container.svg" alt="info" class="info-icon" />
+        <p>
+          Вводя свой номер телефона, вы автоматически соглашаетесь с правилами
+          пользования сервисом и даёте своё согласие на обработку персональных
+          данных
+        </p>
+      </div>
+    </div>
 
-  <div class="consent-bar">
-    <img src="Icon Container.svg" alt="info" class="info-icon">
-    <p>
-      Вводя свой номер телефона, вы автоматически соглашаетесь с правилами пользования сервисом и даёте своё согласие на обработку персональных данных
-    </p>
-  </div>
-</div>
+    <!-- 3 экран проверки номера телефона -->
+    <div id="screen-checkphone" class="screen">
+      <button class="btn back-btn"><span>&larr;</span> Назад</button>
 
-<!-- 3 экран проверки номера телефона -->
-<div id="screen-checkphone" class="screen">
-    <button class="btn back-btn">
-        <span>&larr;</span> Назад
-    </button>
+      <img src="Problem.svg" alt="У меня проблема" class="problem-button" />
 
-    <img src="Problem.svg" alt="У меня проблема" class="problem-button">
+      <div class="phone-check-title">Проверьте, что ввели номер правильно</div>
 
-    <div class="phone-check-title">Проверьте, что ввели номер правильно</div>
-
-    <!-- Основной контейнер для отображения номера -->
-    <div class="phone-number-display">
+      <!-- Основной контейнер для отображения номера -->
+      <div class="phone-number-display">
         <span id="displayed-phone">+7 (XXX) XXX-XX-XX</span>
+      </div>
+
+      <div class="check-buttons-container">
+        <button class="mistake-btn">Ошибка в номере</button>
+
+        <button class="correct-btn">Верно</button>
+      </div>
     </div>
 
-    <div class="check-buttons-container">
-        <button class="mistake-btn">
-            Ошибка в номере
-        </button>
-    
-        <button class="correct-btn">
-            Верно
-        </button>
+    <!-- 4 экран положить посылку -->
+    <div id="screen-package" class="screen">
+      <button class="btn back-btn"><span>&larr;</span> Назад</button>
+
+      <img src="Problem.svg" alt="У меня проблема" class="problem-button" />
+
+      <div class="screen-package-title">
+        Положите посылку в открытую ячейку.<br />После помещения посылки в
+        ячейку, закройте ячейку
+      </div>
+
+      <img src="posstamat4.svg" alt="Постамат" class="posstamat4" />
+
+      <img src="destructive.svg" alt="Внимание" class="destructive-icon" />
     </div>
-</div>
 
-<!-- 4 экран положить посылку -->
-<div id="screen-package" class="screen">
-    <button class="btn back-btn">
-        <span>&larr;</span> Назад
-    </button>
+    <!-- 5 экран код для получения посылки-->
+    <div id="сode" class="screen">
+      <button class="btn back-btn"><span>&larr;</span> Назад</button>
 
-    <img src="Problem.svg" alt="У меня проблема" class="problem-button">
+      <img src="Problem.svg" alt="У меня проблема" class="problem-button" />
 
+      <div class="code-title">
+        Код для получения будет отправлен вам в СМС<br />после досмотра
+        медицинским персоналом
+      </div>
 
-    <div class="screen-package-title">Положите посылку в открытую ячейку.<br>После помещения посылки в ячейку, закройте ячейку</div>
+      <img src="image-2.svg" alt="холодомат" class="holodomat" />
 
-    <img src="posstamat4.svg" alt="Постамат" class="posstamat4" />
+      <img
+        src="destructivealert.svg"
+        alt="Внимание!"
+        class="destructivealert-icon"
+      />
+    </div>
 
-    <img src="destructive.svg" alt="Внимание" class="destructive-icon" />
+    <!--закройте пж холодильник-->
 
-</div>
+    <!-- 8 экран у меня проблема-->
+    <div id="screen-problems" class="screen">
+      <button class="btn back-btn"><span>&larr;</span> Назад</button>
 
-<!-- 5 экран код для получения посылки-->
-<div id="сode" class="screen">
-    <button class="btn back-btn">
-        <span>&larr;</span> Назад
-    </button>
-
-    <img src="Problem.svg" alt="У меня проблема" class="problem-button">
-
-    <div class="code-title">Код для получения будет отправлен вам в СМС<br>после досмотра медицинским персоналом</div>
-
-    <img src="image-2.svg" alt="холодомат" class="holodomat" />
-
-    <img src="destructivealert.svg" alt="Внимание!" class="destructivealert-icon" />
-
-</div>
-
-<!--закройте пж холодильник-->
-
-<!-- 8 экран у меня проблема-->
-<div id="screen-problems" class="screen">
-    <button class="btn back-btn">
-        <span>&larr;</span> Назад
-    </button>
-
-    <div class="problem-header">
+      <div class="problem-header">
         <h2 class="problem-title">Какая у вас проблема?</h2>
+      </div>
+
+      <div class="problem-options">
+        <img src="pr1.svg" alt="probl1" class="problem-button-1" />
+        <img src="pr2.svg" alt="probl3" class="problem-button-2" />
+        <img src="pr3.svg" alt="probl3" class="problem-button-3" />
+      </div>
     </div>
 
-    <div class="problem-options">
-        <img src="pr1.svg" alt="probl1" class="problem-button-1">
-        <img src="pr2.svg" alt="probl3" class="problem-button-2">
-        <img src="pr3.svg" alt="probl3" class="problem-button-3">
-    </div>
-</div>
+    <!-- 9 экран ответ на проблемк-->
+    <div id="screen1-problems" class="screen">
+      <button class="btn back-btn"><span>&larr;</span> Назад</button>
 
-<!-- 9 экран ответ на проблемк-->
-<div id="screen1-problems" class="screen">
-    <button class="btn back-btn">
-        <span>&larr;</span> Назад
-    </button>
+      <div class="problemans-header">
+        <h2 class="problem1-title">
+          Спасибо, что сообщили.<br />Сейчас откроется другая ячейка
+        </h2>
+      </div>
 
-    <div class="problemans-header">
-        <h2 class="problem1-title">Спасибо, что сообщили.<br>Сейчас откроется другая ячейка</h2>
+      <img src="dver.svg" alt="door" class="dver-icon" />
     </div>
 
-    <img src="dver.svg" alt="door" class="dver-icon" />
+    <!-- 10 экран ответ на проблемк-->
+    <div id="screen2-problems" class="screen">
+      <button class="btn back-btn"><span>&larr;</span> Назад</button>
 
-</div>
-
-<!-- 10 экран ответ на проблемк-->
-<div id="screen2-problems" class="screen">
-    <button class="btn back-btn">
-        <span>&larr;</span> Назад
-    </button>
-
-    <div class="problemans-header">
+      <div class="problemans-header">
         <h2 class="problem2-title">Свяжитесь с оператором по номеру</h2>
-    </div>
-    
-    <div class="phone-box">
-      +7 (934) 060-70-79
-    </div>
+      </div>
 
+      <div class="phone-box">+7 (934) 060-70-79</div>
 
-    <img src="zvonki.svg" alt="calls" class="zvonki-icon" />
-
-</div>
-
-<!-- забрать посылку -->
-<div id = "enter-code" class= "screen">
-  <button class="btn back-btn">
-    <span>&larr;</span> Назад
-  </button>
-
-  <button class="btn next-btn">
-    Далее <span>&rarr;</span>
-  </button>
-  <p class="code-title">Введите код для получения посылки</p>
-
-  <div class="code-input-wrapper">
-    <input type="text" id="code-input" class="code-input" placeholder="_ _ _ _">
-    <img id="clear-icon-code" class="clear-icon-code" src="Vector.svg" alt="Очистить" style="display: none;">
-  </div>
-
-  <div class="keypad">
-    <button class="key">1</button>
-    <button class="key">2</button>
-    <button class="key">3</button>
-    <button class="key">4</button>
-    <button class="key">5</button>
-    <button class="key">6</button>
-    <button class="key">7</button>
-    <button class="key">8</button>
-    <button class="key">9</button>
-    <div class="key empty"></div>
-    <button class="key">0</button>
-    <div class="key empty"></div>
-  </div>
-
-</div>
-
-<!-- сейчас откроется -->
-<div id="opening-now" class = "screen">
-  <button class="btn back-btn">
-    <span>&larr;</span> Назад
-  </button>
-  <img src="Problem.svg" alt="У меня проблема" class="problem-button">
-  
-  <h2 class="on-title">Сейчас откроется ячейка № х.<br>Пожалуйста, закройте её после использования</h2>
-
-  <img src="хлеб.svg" alt="bread" class="dver-icon" />
-
-</div> 
-
-<!-- заберите посылку -->
-<div id="take-now" class = "screen">
-  <button class="btn back-btn">
-    <span>&larr;</span> Назад
-  </button>
-  <img src="Problem.svg" alt="У меня проблема" class="problem-button">
-  
-  <h2 class="on-title">Заберите посылку из открытой ячейки. После чего, <br>пожалуйста, закройте ячейку и холодильник</h2>
-
-  <img src="posstamat4.svg" alt="posstamat4" class="dver-icon" />
-
-</div> 
-
-<!--закройте пж холодильник-->
-
-<!--ошибка кода-->
-<!-- вот как это потом с самим постаматом свзяать......-->
-<div id="wrong-code" class="screen">
-  <button class="btn back-btn">
-    <span>&larr;</span> Назад
-  </button>
-
-  <button class="btn next-btn">
-    Далее <span>&rarr;</span>
-  </button>
-  <p class="code-title">Введите код для получения посылки</p>
-
-  <!-- Иконка ошибки вместо текстового сообщения -->
-  <img src="ошибкавкоде.svg" alt="mistake" class="mistake-icon" />
-
-  <div class="code-input-wrapper">
-    <input type="text" id="code-input-error" class="code-input" placeholder="_ _ _ _">
-    <img id="clear-icon-code-error" class="clear-icon-code" src="Vector.svg" alt="Очистить" style="display: none;">
-  </div>
-
-  <div class="keypad">
-    <button class="key">1</button>
-    <button class="key">2</button>
-    <button class="key">3</button>
-    <button class="key">4</button>
-    <button class="key">5</button>
-    <button class="key">6</button>
-    <button class="key">7</button>
-    <button class="key">8</button>
-    <button class="key">9</button>
-    <div class="key empty"></div>
-    <button class="key">0</button>
-    <div class="key empty"></div>
-  </div>
-</div>
-
-<!-- ПЕРСОНАЛ -->
-<!--П: главная-->
-<div id="screen-check" class="screen">
-  <button class="btn back-btn">
-    <span>&larr;</span> Назад
-  </button>
-  <img src="img/logo.svg" alt="Логотип" class="logo" />
-
-    <div class="button-group">
-      <button class="main-btn" onclick="showScreen('screen-check-enter-code')">Проверить посылки</button>
-      <button class="main-btn" onclick = "showScreen('open-return-box')">Открыть ячейки возврата</button>
+      <img src="zvonki.svg" alt="calls" class="zvonki-icon" />
     </div>
 
-    <div id="parcel-indicator" class="indicatorP"></div>
-</div>
+    <!-- забрать посылку -->
+    <div id="enter-code" class="screen">
+      <button class="btn back-btn"><span>&larr;</span> Назад</button>
 
-<!--П: проверить посылки-->
-<div id = "screen-check-enter-code" class= "screen">
-  <button class="btn back-btn">
-    <span>&larr;</span> Назад
-  </button>
+      <button class="btn next-btn">Далее <span>&rarr;</span></button>
+      <p class="code-title">Введите код для получения посылки</p>
 
-  <button class="btn next-btn">
-    Далее <span>&rarr;</span>
-  </button>
-  <p class="code-title-check">Введите мастер-код для проверки<br>
-   <span class="centered-line">всех непроверенных посылок</span>
-  </p>
+      <div class="code-input-wrapper">
+        <input
+          type="text"
+          id="code-input"
+          class="code-input"
+          placeholder="_ _ _ _"
+        />
+        <img
+          id="clear-icon-code"
+          class="clear-icon-code"
+          src="Vector.svg"
+          alt="Очистить"
+          style="display: none"
+        />
+      </div>
 
-  <div class="code-input-wrapper-check">
-    <input type="text" id="code-input-check" class="code-input-check" placeholder="_ _ _ _">
-    <img id="clear-icon-code-check" class="clear-icon-code-check" src="Vector.svg" alt="Очистить" style="display: none;">
-  </div>
+      <div class="keypad">
+        <button class="key">1</button>
+        <button class="key">2</button>
+        <button class="key">3</button>
+        <button class="key">4</button>
+        <button class="key">5</button>
+        <button class="key">6</button>
+        <button class="key">7</button>
+        <button class="key">8</button>
+        <button class="key">9</button>
+        <div class="key empty"></div>
+        <button class="key">0</button>
+        <div class="key empty"></div>
+      </div>
+    </div>
 
-  <div class="keypad">
-    <button class="key">1</button>
-    <button class="key">2</button>
-    <button class="key">3</button>
-    <button class="key">4</button>
-    <button class="key">5</button>
-    <button class="key">6</button>
-    <button class="key">7</button>
-    <button class="key">8</button>
-    <button class="key">9</button>
-    <div class="key empty"></div>
-    <button class="key">0</button>
-    <div class="key empty"></div>
-  </div>
-</div>
+    <!-- сейчас откроется -->
+    <div id="opening-now" class="screen">
+      <button class="btn back-btn"><span>&larr;</span> Назад</button>
+      <img src="Problem.svg" alt="У меня проблема" class="problem-button" />
 
-<!--П: открыть ячейки возврата-->
-<div id = "open-return-box" class= "screen">
-  <button class="btn back-btn">
-    <span>&larr;</span> Назад
-  </button>
+      <h2 class="on-title">
+        Сейчас откроется ячейка № х.<br />Пожалуйста, закройте её после
+        использования
+      </h2>
 
-  <button class="btn next-btn">
-    Далее <span>&rarr;</span>
-  </button>
-  <p class="code-title-check">Введите мастер-код<br>для открытия ячеек возврата</p>
+      <img src="хлеб.svg" alt="bread" class="dver-icon" />
+    </div>
 
-  <div class="code-input-wrapper-check">
-    <input type="text" id="code-input-check" class="code-input-check" placeholder="_ _ _ _">
-    <img id="clear-icon-code-check" class="clear-icon-code-check" src="Vector.svg" alt="Очистить" style="display: none;">
-  </div>
+    <!-- заберите посылку -->
+    <div id="take-now" class="screen">
+      <button class="btn back-btn"><span>&larr;</span> Назад</button>
+      <img src="Problem.svg" alt="У меня проблема" class="problem-button" />
 
-  <div class="keypad">
-    <button class="key">1</button>
-    <button class="key">2</button>
-    <button class="key">3</button>
-    <button class="key">4</button>
-    <button class="key">5</button>
-    <button class="key">6</button>
-    <button class="key">7</button>
-    <button class="key">8</button>
-    <button class="key">9</button>
-    <div class="key empty"></div>
-    <button class="key">0</button>
-    <div class="key empty"></div>
-  </div>
-</div>
+      <h2 class="on-title">
+        Заберите посылку из открытой ячейки. После чего, <br />пожалуйста,
+        закройте ячейку и холодильник
+      </h2>
 
-<!--П:проверка: инстр 1-->
-<div id = "instr-screen" class = "screen">
-    <button class="btn back-btn">
-    <span>&larr;</span> Назад
-  </button>
-  <button class="btn next-btn">
-    Далее <span>&rarr;</span>
-  </button> 
-  <img src="инструкция.svg" alt="инструкция" class="ins">
-  <img src="Problem.svg" alt="У меня проблема" class="problem-button-ins">
-</div>
-<!--П:проверка: инстр 2-->
-<div id = "ins2-screen" class = "screen">
-  <button class="btn back-btn">
-    <span>&larr;</span> Назад
-  </button>
-  <button class="btn next-btn">
-    Завершить проверку <span>&rarr;</span>
-  </button> 
-  <img src="ins2.svg" alt="инструкция" class="ins">
-  <img src="Problem.svg" alt="У меня проблема" class="problem-button-ins">
-</div>
+      <img src="posstamat4.svg" alt="posstamat4" class="dver-icon" />
+    </div>
 
-<!--П:проверка: (КОНЕЦ) пж закройте холодильник-->
+    <!--закройте пж холодильник-->
 
-<!--П:возврат: инстр 1-->
-<div id = "instr2-screen" class = "screen">
-  <button class="btn back-btn">
-    <span>&larr;</span> Назад
-  </button>
-  <button class="btn next-btn">
-    Далее <span>&rarr;</span>
-  </button> 
-  <h2 class="on-title">Сейчас откроются ячейки возврата.<br>Пожалуйста, после использования<br>не забудьте закрыть их</h2>
-  <img src="возврат.svg" alt="возврат" class="dver-icon">
-  <img src="Problem.svg" alt="У меня проблема" class="problem-button-ins">
-</div>
+    <!--ошибка кода-->
+    <!-- вот как это потом с самим постаматом свзяать......-->
+    <div id="wrong-code" class="screen">
+      <button class="btn back-btn"><span>&larr;</span> Назад</button>
 
-<!--П:возврат: (КОНЕЦ) )-->
-<div id = "instr2-screen-end" class = "screen">
-  <button class="btn back-btn">
-    <span>&larr;</span> Назад
-  </button>
-  <button class="btn next-btn">
-    Завершить возврат <span>&rarr;</span>
-  </button> 
-  <h2 class="on-title">Пожалуйста,<br>не забудьте закрыть ячейки</h2>
-  <img src="posstamat4.svg" alt="возврат" class="vozvrat-icon">
-  <img src="Problem.svg" alt="У меня проблема" class="problem-button-ins">
-</div>
+      <button class="btn next-btn">Далее <span>&rarr;</span></button>
+      <p class="code-title">Введите код для получения посылки</p>
+      <img src="ошибкавкоде.svg" alt="mistake" class="mistake-icon" />
+
+      <div class="code-input-wrapper">
+        <input
+          type="text"
+          id="code-input-error"
+          class="code-input"
+          placeholder="_ _ _ _"
+        />
+        <img
+          id="clear-icon-code-error"
+          class="clear-icon-code"
+          src="Vector.svg"
+          alt="Очистить"
+          style="display: none"
+        />
+      </div>
+
+      <div class="keypad">
+        <button class="key">1</button>
+        <button class="key">2</button>
+        <button class="key">3</button>
+        <button class="key">4</button>
+        <button class="key">5</button>
+        <button class="key">6</button>
+        <button class="key">7</button>
+        <button class="key">8</button>
+        <button class="key">9</button>
+        <div class="key empty"></div>
+        <button class="key">0</button>
+        <div class="key empty"></div>
+      </div>
+    </div>
+
+    <!-- ПЕРСОНАЛ -->
+    <!--П: главная-->
+    <div id="screen-check" class="screen">
+      <button class="btn back-btn"><span>&larr;</span> Назад</button>
+      <img src="img/logo.svg" alt="Логотип" class="logo" />
+
+      <div class="button-group">
+        <button
+          class="main-btn"
+          onclick="showScreen('screen-check-enter-code')"
+        >
+          Проверить посылки
+        </button>
+        <button class="main-btn" onclick="showScreen('open-return-box')">
+          Открыть ячейки возврата
+        </button>
+      </div>
+
+      <div id="parcel-indicator" class="indicatorP"></div>
+    </div>
+
+    <!--П: проверить посылки-->
+    <div id="screen-check-enter-code" class="screen">
+      <button class="btn back-btn"><span>&larr;</span> Назад</button>
+
+      <button class="btn next-btn">Далее <span>&rarr;</span></button>
+      <p class="code-title-check">
+        Введите мастер-код для проверки<br />
+        <span class="centered-line">всех непроверенных посылок</span>
+      </p>
+
+      <div class="code-input-wrapper-check">
+        <input
+          type="text"
+          id="code-input-check"
+          class="code-input-check"
+          placeholder="_ _ _ _"
+        />
+        <img
+          id="clear-icon-code-check"
+          class="clear-icon-code-check"
+          src="Vector.svg"
+          alt="Очистить"
+          style="display: none"
+        />
+      </div>
+
+      <div class="keypad">
+        <button class="key">1</button>
+        <button class="key">2</button>
+        <button class="key">3</button>
+        <button class="key">4</button>
+        <button class="key">5</button>
+        <button class="key">6</button>
+        <button class="key">7</button>
+        <button class="key">8</button>
+        <button class="key">9</button>
+        <div class="key empty"></div>
+        <button class="key">0</button>
+        <div class="key empty"></div>
+      </div>
+    </div>
+
+    <!--П: открыть ячейки возврата-->
+    <div id="open-return-box" class="screen">
+      <button class="btn back-btn"><span>&larr;</span> Назад</button>
+
+      <button class="btn next-btn">Далее <span>&rarr;</span></button>
+      <p class="code-title-check">
+        Введите мастер-код<br />для открытия ячеек возврата
+      </p>
+
+      <div class="code-input-wrapper-check">
+        <input
+          type="text"
+          id="code-input-check"
+          class="code-input-check"
+          placeholder="_ _ _ _"
+        />
+        <img
+          id="clear-icon-code-check"
+          class="clear-icon-code-check"
+          src="Vector.svg"
+          alt="Очистить"
+          style="display: none"
+        />
+      </div>
+
+      <div class="keypad">
+        <button class="key">1</button>
+        <button class="key">2</button>
+        <button class="key">3</button>
+        <button class="key">4</button>
+        <button class="key">5</button>
+        <button class="key">6</button>
+        <button class="key">7</button>
+        <button class="key">8</button>
+        <button class="key">9</button>
+        <div class="key empty"></div>
+        <button class="key">0</button>
+        <div class="key empty"></div>
+      </div>
+    </div>
+
+    <!--П:проверка: инстр 1-->
+    <div id="instr-screen" class="screen">
+      <button class="btn back-btn"><span>&larr;</span> Назад</button>
+      <button class="btn next-btn">Далее <span>&rarr;</span></button>
+      <img src="инструкция.svg" alt="инструкция" class="ins" />
+      <img src="Problem.svg" alt="У меня проблема" class="problem-button-ins" />
+    </div>
+    <!--П:проверка: инстр 2-->
+    <div id="ins2-screen" class="screen">
+      <button class="btn back-btn"><span>&larr;</span> Назад</button>
+      <button class="btn next-btn">
+        Завершить проверку <span>&rarr;</span>
+      </button>
+      <img src="ins2.svg" alt="инструкция" class="ins" />
+      <img src="Problem.svg" alt="У меня проблема" class="problem-button-ins" />
+    </div>
+
+    <!--П:проверка: (КОНЕЦ) пж закройте холодильник-->
+
+    <!--П:возврат: инстр 1-->
+    <div id="instr2-screen" class="screen">
+      <button class="btn back-btn"><span>&larr;</span> Назад</button>
+      <button class="btn next-btn">Далее <span>&rarr;</span></button>
+      <h2 class="on-title">
+        Сейчас откроются ячейки возврата.<br />Пожалуйста, после
+        использования<br />не забудьте закрыть их
+      </h2>
+      <img src="возврат.svg" alt="возврат" class="dver-icon" />
+      <img src="Problem.svg" alt="У меня проблема" class="problem-button-ins" />
+    </div>
+
+    <!--П:возврат: (КОНЕЦ) )-->
+    <div id="instr2-screen-end" class="screen">
+      <button class="btn back-btn"><span>&larr;</span> Назад</button>
+      <button class="btn next-btn">
+        Завершить возврат <span>&rarr;</span>
+      </button>
+      <h2 class="on-title">Пожалуйста,<br />не забудьте закрыть ячейки</h2>
+      <img src="posstamat4.svg" alt="возврат" class="vozvrat-icon" />
+      <img src="Problem.svg" alt="У меня проблема" class="problem-button-ins" />
+    </div>
 
     <script src="scripts.js"></script>
-</body>
+  </body>
 </html>
