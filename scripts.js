@@ -164,6 +164,18 @@ function initEventHandlers() {
       }
     });
 
+  document
+    .querySelector("#ins2-screen .next-btn")
+    ?.addEventListener("click", () => {
+      showScreen("end-screen");
+    });
+
+  document
+    .querySelector("#instr2-screen-end .next-btn")
+    ?.addEventListener("click", () => {
+      showScreen("end-screen");
+    });
+
   // Кнопка "Ошибка в номере"
   document.querySelector(".mistake-btn")?.addEventListener("click", () => {
     showScreen("screen-phone");
@@ -265,4 +277,37 @@ document.addEventListener("DOMContentLoaded", () => {
   initPhoneInput();
   initEventHandlers();
   initCodeInput();
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const allKeypads = document.querySelectorAll(".keypad");
+
+  allKeypads.forEach((keypad) => {
+    keypad.addEventListener("click", function (e) {
+      if (
+        e.target.classList.contains("key") &&
+        !e.target.classList.contains("empty")
+      ) {
+        const digit = e.target.textContent.trim();
+
+        // Найдём активный input — тот, который сейчас виден на экране
+        const visibleInputs = document.querySelectorAll(
+          ".screen.active input[type='text']"
+        );
+        if (visibleInputs.length > 0) {
+          const input = visibleInputs[0];
+
+          // Вставим цифру, ограничим 4 символами
+          if (input.value.length < 4) {
+            input.value += digit;
+            const clearBtn = input.parentElement.querySelector(
+              ".clear-icon, .clear-icon-code, .clear-icon-code-check"
+            );
+            if (clearBtn) clearBtn.style.display = "inline";
+          }
+        }
+      }
+    });
+  });
+  //очистка полей
 });

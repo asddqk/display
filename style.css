@@ -494,7 +494,7 @@ body {
   position: absolute;
   width: 925px;
   height: 80px;
-  top: 120px;
+  top: 80px;
   left: 50px;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
@@ -745,4 +745,29 @@ body {
   box-sizing: border-box;
   opacity: 1;
   padding: 0 20px;
+}
+
+.holod {
+  position: absolute;
+  width: 379;
+  height: 303;
+  top: 102px;
+  left: 323px;
+}
+
+.on-title-end {
+  position: absolute;
+  width: 925px;
+  height: 90px;
+  top: 420px;
+  left: 50px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 45px;
+  letter-spacing: 0;
+  text-align: center;
+  color: #101828;
+  opacity: 1;
+  margin-bottom: 24px;
 }
