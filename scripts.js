@@ -2,6 +2,40 @@
 const screenHistory = [];
 let digits = ""; // Хранит только цифры номера (без маски)
 let codeInputHandler = null;
+let codeDigits = [];
+
+function updateCodeInput() {
+  const input = document.querySelector(
+    ".screen.active input.code-input, .screen.active input.code-input-check"
+  );
+  if (input) {
+    input.value = codeDigits.join("");
+  }
+}
+document.querySelectorAll(".keypad").forEach((keypad) => {
+  keypad.addEventListener("click", (e) => {
+    if (
+      e.target.classList.contains("key") &&
+      !e.target.classList.contains("empty")
+    ) {
+      const digit = e.target.textContent.trim();
+
+      if (codeDigits.length < 4) {
+        codeDigits.push(digit);
+        updateCodeInput();
+
+        const input = document.querySelector(
+          ".screen.active input.code-input, .screen.active input.code-input-check"
+        );
+        const clearIcon = input?.parentElement.querySelector(
+          ".clear-icon-code, .clear-icon-code-check"
+        );
+        if (clearIcon) clearIcon.style.display = "inline";
+      }
+    }
+  });
+});
+
 // Основная функция переключения экранов
 function showScreen(screenId, rememberHistory = true) {
   const currentScreen = document.querySelector(".screen.active");
@@ -291,9 +325,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const digit = e.target.textContent.trim();
 
         // Найдём активный input — тот, который сейчас виден на экране
-        const visibleInputs = document.querySelectorAll(
+        /*const visibleInputs = document.querySelectorAll(
           ".screen.active input[type='text']"
-        );
+        )
         if (visibleInputs.length > 0) {
           const input = visibleInputs[0];
 
@@ -305,9 +339,27 @@ document.addEventListener("DOMContentLoaded", function () {
             );
             if (clearBtn) clearBtn.style.display = "inline";
           }
-        }
+        }*/
       }
     });
   });
   //очистка полей
+  const clearIcons = document.querySelectorAll(
+    ".clear-icon-code, .clear-icon-code-check"
+  );
+
+  clearIcons.forEach((clearIcon) => {
+    clearIcon.addEventListener("click", (e) => {
+      e.stopPropagation();
+
+      if (codeDigits.length > 0) {
+        codeDigits = codeDigits.slice(0, -1); // Удалить последнюю цифру
+        updateCodeInput();
+      }
+
+      // Вернуть фокус в input
+      const input = clearIcon.parentElement.querySelector("input");
+      if (input) input.focus();
+    });
+  });
 });
