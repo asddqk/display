@@ -1,9 +1,7 @@
-// === Глобальные переменные ===
 const screenHistory = [];
 let phoneDigits = ""; // Хранит цифры номера телефона
 let codeInputHandler = null;
 
-// === Утилиты ===
 function showScreen(screenId, rememberHistory = true) {
   const currentScreen = document.querySelector(".screen.active");
   if (currentScreen && rememberHistory) screenHistory.push(currentScreen.id);
